@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ListaComponent } from './lista/lista.component';
 import { DettaglioComponent } from './dettaglio/dettaglio.component';
 import { ModificaComponent } from './modifica/modifica.component';
+import { MenuService } from './Menu.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { ModificaComponent } from './modifica/modifica.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

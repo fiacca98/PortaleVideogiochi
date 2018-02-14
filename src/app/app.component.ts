@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MenuService } from './Menu.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  currentSection="home";
+
+  constructor(private menuService: MenuService){
+    this.menuService.sectionSelected$.subscribe(id=>{
+      this.currentSection = id;
+    });
+  }
 }
