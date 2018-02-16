@@ -20,7 +20,6 @@ export class AppComponent {
 
   currentGame(item: string){
     this.gameSelected = item;
-    alert(item);
     this.menuService.setSelection("dettaglio");
 
   }

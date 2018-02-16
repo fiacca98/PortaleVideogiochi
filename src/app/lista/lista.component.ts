@@ -29,7 +29,6 @@ export class ListaComponent implements OnInit {
   }
   showData(item:GameItem){
     // chiamo il next nel subject;
-    alert(item.nome);
     this.change.emit(item.id);
         
   }
