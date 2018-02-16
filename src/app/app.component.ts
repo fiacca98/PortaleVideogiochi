@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { MenuService } from './Menu.service';
+import { GameItem } from '../GameItem';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,18 @@ import { MenuService } from './Menu.service';
 export class AppComponent {
   title = 'app';
   currentSection="home";
+  gameSelected: string;
 
   constructor(private menuService: MenuService){
     this.menuService.sectionSelected$.subscribe(id=>{
       this.currentSection = id;
     });
+  }
+
+  currentGame(item: string){
+    this.gameSelected = item;
+    alert(item);
+    this.menuService.setSelection("dettaglio");
+
   }
 }

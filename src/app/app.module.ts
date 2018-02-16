@@ -10,6 +10,7 @@ import { DettaglioComponent } from './dettaglio/dettaglio.component';
 import { ModificaComponent } from './modifica/modifica.component';
 import { MenuService } from './Menu.service';
 import { GameListService } from './GameList.service';
+import { ComunicatorService } from '../comunicator.service';
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import { GameListService } from './GameList.service';
   imports: [
     BrowserModule
   ],
-  providers: [MenuService, GameListService],
+  providers: [MenuService, GameListService, ComunicatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

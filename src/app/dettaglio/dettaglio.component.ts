@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { GameItem } from '../../GameItem';
+import { ComunicatorService } from '../../comunicator.service';
+import { MenuService } from '../Menu.service';
+import { GameListService } from '../GameList.service';
 
 @Component({
   selector: 'app-dettaglio',
@@ -7,9 +11,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DettaglioComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  idSelected: string;
+  gameSelected: GameItem;
+  constructor(private gameListService: GameListService) { 
+  }
 
   ngOnInit() {
+    this.gameSelected = this.gameListService.getGameById(this.idSelected);
   }
 
 }

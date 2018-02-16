@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Injectable } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { GameItem } from '../../GameItem';
 import { GameListService } from '../GameList.service';
+import { ComunicatorService } from '../../comunicator.service';
+import { MenuService } from '../Menu.service';
 
 @Component({
   selector: 'app-lista',
@@ -15,19 +16,22 @@ export class ListaComponent implements OnInit {
   @Input()
   games: GameItem[];
 
-  constructor(private GameService: GameListService) { 
+  @Output()
+  change: EventEmitter<string> = new EventEmitter();
+
+  constructor(private GameService: GameListService, private comunicator: ComunicatorService) { 
+
     this.games = this.GameService.getGamesList();
-    console.log(this.games[0]);
-    
   }
 
   ngOnInit() {
-    this.games.push(new GameItem())
+    //this.games.push(new GameItem());
   }
   showData(item:GameItem){
     // chiamo il next nel subject;
-    //this.comunicatorService.changeSubject(item);
     alert(item.nome);
+    this.change.emit(item.id);
+        
   }
 
 }

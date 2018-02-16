@@ -1,5 +1,4 @@
 <div  *ngFor="let gameItem of games; let i=index" (click)="showData(gameItem)">
-  <div *ngIf="i!=(games.length-1)">
     {{gameItem.id}}<br>
     {{gameItem.nome}}<br>
     {{gameItem.descrizione}}<br>
@@ -9,6 +8,5 @@
     {{gameItem.annoUscita}}<br>
     {{gameItem.consoleType}}<br>
     <div >-------</div>
-    </div>
 
 </div>
